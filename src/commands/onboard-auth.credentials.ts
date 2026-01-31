@@ -178,3 +178,15 @@ export async function setOpencodeZenApiKey(key: string, agentDir?: string) {
     agentDir: resolveAuthAgentDir(agentDir),
   });
 }
+
+export async function setNebiusApiKey(key: string, agentDir?: string) {
+  upsertAuthProfile({
+    profileId: "nebius:default",
+    credential: {
+      type: "api_key",
+      provider: "nebius",
+      key,
+    },
+    agentDir: resolveAuthAgentDir(agentDir),
+  });
+}
